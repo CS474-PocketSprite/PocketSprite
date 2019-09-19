@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+  background-size: cover;
+  background:url(images/living-room-small.png) no-repeat center center fixed;
+}
+
+h1{
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgb(25, 88, 88);
+    background: rgb(25, 88, 88);
+    border-radius: 5px;
+    border: 2px solid green;
+}
+
+.left-column{
+  width:66%;
+}
+
+#actionButton{
+  text-align: center;
+  height: 120;
+  position: fixed;
+  top: 250px;
+  left: 500px;
+  border: 2px solid green;
+  border-radius: 3px solid; 
+  background-color: rgb(25, 88, 88);
+  background: rgb(25, 88, 88);
+}
+
+#actionButton2{
+  text-align:center;
+  background-color: rgb(25, 88, 88);
+  border: 2px solid green;
+  color: white;
+  padding:10px 24px;
+  width:50px;
+  display:block;
+}
+
+.button-group button{
+  text-align:center;
+  background-color: rgb(25, 88, 88);
+  border: 2px solid green;
+  color: white;
+  padding:10px 24px;
+  width:50px;
+  display:block;
+}
+
+.button-group button:not(:last-child){
+  border-bottom:none;
+}
+
+anim-ufo {
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 100%; 
+    }
+  
+    to {
+      margin-left: 100%;
+      width: 100%;
+    }
+  }
+
+  
