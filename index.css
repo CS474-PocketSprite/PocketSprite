@@ -28,10 +28,12 @@ html {
 
 #name{
     text-align: center;
-    height: ;
-    position: absolute;
-    top: 15%;
-    left: 46%;
+    height: 120;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
     border: 2px solid green;
     border-radius: 3px solid; 
     background-color: rgb(25, 88, 88);
