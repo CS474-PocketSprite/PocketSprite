@@ -1,3 +1,5 @@
+
+
 h1{
     text-align: center;
     margin: 0 auto;
@@ -5,11 +7,6 @@ h1{
     background: rgb(25, 88, 88);
     border-radius: 5px;
     border: 2px solid green;
-}
-
-html {
-    background: url('https://www.skagen-tourist.dk/sites/default/files/styles/news_and_article_image/public/asp/toppenafdanmark/toad/vinter/stjernehimmel-vinter.jpg?itok=Lxw6_PnI') no-repeat center center fixed;
-    background-size: cover;
 }
 
 #startButton{
@@ -26,25 +23,10 @@ html {
     display: relative;
 }
 
-#fName-Start{
-    border: 2px solid green;
-    border-radius: 3px solid; 
-    background-color: rgb(25, 88, 88);
-    position: absolute;
-    left: 46%;
-    align-items: right;
-    position: fixed;
-    display: none;
-}
-
 .inputStart{
     position: absolute;
     left: 46%;
     align-items: right;
     position: fixed;
     display: none;
-}
-
-#background-container {
-    background-size: contain;
 }
