@@ -1,5 +1,4 @@
 
-
 function getWidth(){
   var width = Screen.width;
 }
@@ -17,7 +16,7 @@ var Sprite = {
       this.sleepLevel = 50;
     },
     timePasses: function () {
-      this.foodLevel = this.foodLevel - 1;
+      this.foodLevel = this.foodLevel - 2;
       this.playLevel = this.playLevel - 2;
       this.sleepLevel = this.sleepLevel - 2;
     },
@@ -38,22 +37,10 @@ var Sprite = {
       this.sleepLevel = this.sleepLevel + 5
     }
   }
-  $(document).ready(function(e){
-    var width =  $(document).width();
-    function goRight(){
-      $('spriteContatiner').animate({
-        left: width
-    }, 5000, function() {
-       setTimeout(goLeft, 50);
-    });
-  }
-  function goLeft(){
-      $("#spriteContainer").animate({
-      left: 0
-    }, 5000, function() {
-       setTimeout(goRight, 50);
-    });
-  }
-  setTimeout(goRight, 50);
-});
-    
+
+var Sprite;
+
+function getName(){
+  var name = document.getElementById("firstname");
+  console.log(name);
+}
