@@ -2,11 +2,6 @@
 function getWidth(){
   var width = Screen.width;
 }
-function inputName(){
-  var startButton =  document.getElementById("inputStart");
-  this.style.display = 'absolute';
-  
-}
 
 var Sprite = {
     initialize: function (name) {
@@ -42,5 +37,5 @@ var Sprite;
 
 function getName(){
   var name = document.getElementById("firstname");
-  console.log(name);
+  
 }
