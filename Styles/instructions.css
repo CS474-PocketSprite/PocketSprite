@@ -44,7 +44,8 @@ html {
 }
 
 .bottom-container{
-    height: 15%;
+    padding: 20px;
+    height: 70%;
 }
 
 .middle-container{
