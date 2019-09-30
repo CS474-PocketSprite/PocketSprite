@@ -1,0 +1,68 @@
+h1{
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgb(25, 88, 88);
+    background: rgb(25, 88, 88);
+    border-radius: 5px;
+    border: 2px solid green;
+}
+
+h2{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color:white;
+    margin: 0 auto;
+    background-color: rgb(25, 88, 88);
+    background: rgb(25, 88, 88);
+    border-radius: 5px;
+    border: 2px solid green;
+    padding: 10px;
+}
+
+#startButton{
+    text-align: center;
+    height: 120;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid green;
+    border-radius: 3px solid; 
+    background-color: rgb(25, 88, 88);
+    background: rgb(25, 88, 88);
+    transform: scale(1.3);
+    display: relative;
+}
+
+html {
+    background: url('https://www.skagen-tourist.dk/sites/default/files/styles/news_and_article_image/public/asp/toppenafdanmark/toad/vinter/stjernehimmel-vinter.jpg?itok=Lxw6_PnI') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.top-buffer{
+    height: 25%;
+}
+
+.bottom-container{
+    height: 15%;
+}
+
+.middle-container{
+    height: 60%;
+    position: relative;
+}
+
+.left-buffer{
+    width: 25%;
+    float:left;
+}
+
+.middle-buffer{
+    width: 50%;
+    float:left;
+}
+
+.right-buffer{
+    width: 25%;
+    float:left;
+}
