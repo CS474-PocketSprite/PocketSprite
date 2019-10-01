@@ -116,21 +116,3 @@ var Sprite = {
 	  this.healthLevel = this.calcHealthLevel();
 	}
 }
-$("#food-button").click(function() {
-	Sprite.foodUp();
-	$("span#food-level").text(tamagotchi.foodLevel);
-  })
-  $("#play-button").click(function() {
-	Sprite.playUp();
-	$("span#play-level").text(tamagotchi.playLevel);
-  })
-  $("#sleep-button").click(function() {
-	Sprite.sleepUp();
-	$("span#sleep-level").text(tamagotchi.sleepLevel);
-  })
-  function getName(){
-	var name = document.getElementById("firstname");
-  
-  }
-  
-  
