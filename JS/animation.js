@@ -1,7 +1,7 @@
 var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var myimage = new Image()
-    myimage.src = "images/alien.png";
+    myimage.src = "Styles/images/alien.png";
     var x = canvas.width / 2;
     var y = canvas.height - 60;
     var dx = 2
@@ -51,15 +51,15 @@ var canvas = document.getElementById("myCanvas");
             alienX += 6;
             if(((counterR % 24) >= 0) && ((counterR % 24) < 8))
             {
-                myimage.src="images/alien_1.png";
+                myimage.src="Styles/images/alien_1.png";
             }
             else if(((counterR % 24) >= 8) && ((counterR % 24) < 16))
             {
-                myimage.src="images/alien_2.png";
+                myimage.src="Styles/images/alien_2.png";
             }
             else if(((counterR % 24) >= 16) && ((counterR % 24) < 24))
             {
-                myimage.src="images/alien_3.png";
+                myimage.src="Styles/images/alien_3.png";
             }
             /*
             else if(((counterR % 40) >= 30) && ((counterR % 40) < 40))
@@ -79,15 +79,15 @@ var canvas = document.getElementById("myCanvas");
             alienX -= 6;
             if(((counterL % 24) >= 0) && ((counterL % 24) < 8))
             {
-                myimage.src="images/alien1.png";
+                myimage.src="Styles/images/alien1.png";
             }
             else if(((counterL % 24) >= 8) && ((counterL % 24) < 16))
             {
-                myimage.src="images/alien2.png";
+                myimage.src="Styles/images/alien2.png";
             }
             else if(((counterL % 24) >= 16) && ((counterL % 24) < 24))
             {
-                myimage.src="images/alien3.png";
+                myimage.src="Styles/images/alien3.png";
             }
             counterL += 1;
             counterR = 0;
@@ -99,7 +99,7 @@ var canvas = document.getElementById("myCanvas");
         }
         else
         {
-            myimage.src="images/alien.png";
+            myimage.src="Styles/images/alien.png";
             counterR = 0;
             counterL = 0;
         }
