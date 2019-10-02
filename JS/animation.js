@@ -1,108 +1,72 @@
-var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var myimage = new Image()
-    myimage.src = "Styles/images/alien.png";
-    var x = canvas.width / 2;
-    var y = canvas.height - 60;
-    var dx = 2
-    var alienHeight = 160 * 1.5;
-    var alienWidth = 100 * 1.25;
-    var alienX = (canvas.width-alienWidth) / 2;
-    var rightPressed = false;
-    var leftPressed = false;
-    var counterR = 0;
-    var counterL = 0;
-    document.addEventListener("keydown", keyDownHandler, false);
-    document.addEventListener("keyup", keyUpHandler, false);
-    function keyDownHandler(e)
+var alien = document.getElementById('alien');
+var cont = document.getElementById('container');
+var pos = 0;
+var counterL = 0;
+var counterR = 0;
+/*
+document.addEventListener("keydown", keyDownHandler, false);
+docuemtn.addEventListener("keyup", keyUpHandler, false);
+function keyDownHandler(e)
+{
+    if(e.key == "Right" || e.key == "ArrowRight")
     {
-        if(e.key == "Right" || e.key == "ArrowRight")
-        {
-            rightPressed = true;
+        rightPressed = true;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft")
+    {
+        leftPressed = true;
+    }
+}
+function keyUpHandler(e)
+{
+    if(e.key == "Right" || e.key == "ArrowRight")
+    {
+        rightPressed = false;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft")
+    {
+        leftPressed = false;
+    }
+}
+*/
+function move(e) {
+    if (e.keyCode == 39) {
+        pos += 32;
+        alien.style.left = pos + 'px';
+        counterR += 1;
+        counterL = 0;
+        if (pos + (alien.width / 2) > screen.width) {
+            pos = screen.width - alien.width / 2;
         }
-        else if(e.key == "Left" || e.key == "ArrowLeft")
-        {
-            leftPressed = true;
+
+        if (((counterR % 12) >= 0) && ((counterR % 12) < 4)) {
+            alien.src = "alien_1.png";
+        }
+        else if (((counterR % 12) >= 4) && ((counterR % 12) < 8)) {
+            alien.src = "alien_2.png";
+        }
+        else if (((counterR % 12) >= 8) && ((counterR % 12) < 12)) {
+            alien.src = "alien_3.png";
         }
     }
-    function keyUpHandler(e)
-    {
-        if(e.key == "Right" || e.key == "ArrowRight")
-        {
-            rightPressed = false;
+    if (e.keyCode == 37) {
+        pos -= 32;
+        alien.style.left = pos + 'px';
+        counterR = 0;
+        counterL += 1;
+        if (pos < 0) {
+            pos = 0;
         }
-        else if(e.key == "Left" || e.key == "ArrowLeft")
-        {
-            leftPressed = false;
+        if (((counterL % 12) >= 0) && ((counterL % 12) < 4)) {
+            alien.src = "alien1.png";
+        }
+        else if (((counterL % 12) >= 4) && ((counterL % 12) < 8)) {
+            alien.src = "alien2.png";
+        }
+        else if (((counterL % 12) >= 8) && ((counterL % 12) < 12)) {
+            alien.src = "alien3.png";
         }
     }
-    function drawAlien()
-    {
-        ctx.beginPath();
-        ctx.drawImage(myimage, alienX, (canvas.height-alienHeight) /1.25, alienWidth, alienHeight);
-        ctx.closePath();
-    }
-    function draw()
-    {
-        ctx.clearRect(0,0,canvas.width, canvas.height);
-        drawAlien();
-        if(rightPressed)
-        {
-            alienX += 6;
-            if(((counterR % 24) >= 0) && ((counterR % 24) < 8))
-            {
-                myimage.src="Styles/images/alien_1.png";
-            }
-            else if(((counterR % 24) >= 8) && ((counterR % 24) < 16))
-            {
-                myimage.src="Styles/images/alien_2.png";
-            }
-            else if(((counterR % 24) >= 16) && ((counterR % 24) < 24))
-            {
-                myimage.src="Styles/images/alien_3.png";
-            }
-            /*
-            else if(((counterR % 40) >= 30) && ((counterR % 40) < 40))
-            {
-                myimage.src="alien4.png";
-            }
-            */
-            counterR += 1;
-            counterL = 0;
-            if(alienX + alienWidth > canvas.width)
-            {
-                alienX = canvas.width - alienWidth;
-            }
-        }
-        else if(leftPressed)
-        {
-            alienX -= 6;
-            if(((counterL % 24) >= 0) && ((counterL % 24) < 8))
-            {
-                myimage.src="Styles/images/alien1.png";
-            }
-            else if(((counterL % 24) >= 8) && ((counterL % 24) < 16))
-            {
-                myimage.src="Styles/images/alien2.png";
-            }
-            else if(((counterL % 24) >= 16) && ((counterL % 24) < 24))
-            {
-                myimage.src="Styles/images/alien3.png";
-            }
-            counterL += 1;
-            counterR = 0;
-            
-            if(alienX < 0)
-            {
-                alienX = 0;
-            }
-        }
-        else
-        {
-            myimage.src="Styles/images/alien.png";
-            counterR = 0;
-            counterL = 0;
-        }
-        x += dx;
-    }
-    setInterval(draw, 48)
+}
+
+document.onkeydown = move;

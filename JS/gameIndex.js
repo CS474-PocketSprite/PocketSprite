@@ -27,7 +27,6 @@ function isAlive() {
 
 function update() {
 	while (health != 0) {
-		//$('#messages').html(health);
 		console.log(health);
 		decreaseHealth();
 	}
@@ -40,13 +39,17 @@ function decreaseHealth() {
 }
 
 function play() {
-	if (!isRunning())
+	if (!isAlive())
 		return;
 
 	update();
 }
 
+// window.onload = function () {
+// 	var btn = document.getElementById("startButton");
+// 	btn.onclick = play;
+// }
+
 function gameOver() {
-	//$('#messages').html('Game Over!');
 	console.log('Game over!');
 }
