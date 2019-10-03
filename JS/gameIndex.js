@@ -26,13 +26,24 @@ function isAlive() {
 }
 
 function update() {
-	var countdown = setInterval(function () {
+	var healthBar = document.getElementById("health");
+
+	setInterval(function() {
+		healthBar.value = health;
+	})
+
+	var countdown = setInterval(function() {
 		console.log(health);
+		
 		decreaseHealth();
 
 		if (health <= 0) {
 			gameOver();
 			clearInterval(countdown);
+		} else {
+			setInterval(function() {
+				healthBar.value = health;
+			}, 1000);
 		}
 	}, 1000);
 }
