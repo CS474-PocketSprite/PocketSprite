@@ -26,12 +26,18 @@ function isAlive() {
 }
 
 function update() {
-	while (health != 0) {
-		console.log(health);
-		decreaseHealth();
-	}
+	// while (health != 0) {
+		setInterval(function(){
+			console.log(health);
+			decreaseHealth();
 
-	gameOver();
+			if (health <= 0) {
+				gameOver();
+			}
+		}, 1000);
+	// }
+
+	// gameOver();
 }
 
 function decreaseHealth() {
@@ -44,11 +50,6 @@ function play() {
 
 	update();
 }
-
-// window.onload = function () {
-// 	var btn = document.getElementById("startButton");
-// 	btn.onclick = play;
-// }
 
 function gameOver() {
 	console.log('Game over!');
