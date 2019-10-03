@@ -28,12 +28,8 @@ function isAlive() {
 function update() {
 	var healthBar = document.getElementById("health");
 
-	setInterval(function() {
-		healthBar.value = health;
-	})
-
 	var countdown = setInterval(function() {
-		console.log(health);
+		//console.log(health);
 		
 		decreaseHealth();
 

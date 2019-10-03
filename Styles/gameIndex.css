@@ -51,7 +51,7 @@ h1{
   float:right;
 }
 
-#healthBar{
+#health{
   text-align:center;
   height: 250px;
   width: 50px;
@@ -124,5 +124,3 @@ anim-ufo {
       width: 100%;
     }
   }
-
-  
