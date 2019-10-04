@@ -36,7 +36,7 @@
                 <div class="bottom-container">
                     <div id="startButton">
                         <form method="POST" action="gameIndex.html" id="play">
-                            <button type="button" onclick="play()">Play</button>
+                            <button id="actionButton2" type="button" onclick="play()">Play</button>
                         </form>
                     </div>
                 </div>
@@ -47,9 +47,19 @@
             <div class="container">
                 <div class="vertical-center">
                     <div class="button-group">
-                        <button id="actionButton2">Give food</button>
+                        <!-- <button id="actionButton2">Give food</button>
                         <button id="actionButton2">Give water</button>
-                        <button id="actionButton2">Give medicine</button>
+                        <button id="actionButton2">Give medicine</button> -->
+
+                        <form method="POST" action="gameIndex.html" id="play">
+                            <button id="actionButton2" type="button" onclick="increaseHealth()">Give Food</button>
+                        </form>
+                        <form method="POST" action="gameIndex.html" id="play">
+                            <button id="actionButton2" type="button" onclick="increaseHealth()">Give Water</button>
+                        </form>
+                        <form method="POST" action="gameIndex.html" id="play">
+                            <button id="actionButton2" type="button" onclick="increaseHealth()">Give Medicine</button>
+                        </form>
                     </div>
                 </div>
             </div>

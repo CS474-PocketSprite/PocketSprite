@@ -48,6 +48,14 @@ function decreaseHealth() {
 	health -= 5;
 }
 
+function increaseHealth() {
+	if (health < 250) {
+		health += 10;
+	} else {
+		health = 250;
+	}
+}
+
 function play() {
 	if (!isAlive())
 		return;
