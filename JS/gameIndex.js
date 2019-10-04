@@ -40,7 +40,7 @@ function update() {
 		//decreaseHealth();
 
 		if (!hungry && !thirsty && !ill) {
-			document.getElementById("inflic").innerHTML = "HEALTHY";
+			document.getElementById("inflic").innerHTML = "I am healthy!";
 		} else {
 			if (hungry) {
 				t1 = "hungry";
@@ -60,7 +60,7 @@ function update() {
 				t3 = " ";
 			}
 
-			document.getElementById("inflic").innerHTML = "I am " + t1 + t2 + t3;
+			document.getElementById("inflic").innerHTML = "I am " + t1 + t2 + t3 + "!";
 		}
 
 		var infliction = Math.floor(Math.random() * 4);
