@@ -1,33 +1,14 @@
-// const btn = document.querySelector('actionButton2');
-// btn.addEventListener('click', (e) => {
-// 	e.preventDefault();
-// 	var height = document.getElementById("healthBar").height;
-// 	if (height == "250") {
-// 		if (document.getElementById("healthBar").background = rgb(225, 0, 0)) {
-// 			document.getElementById("healthBar").height = "50";
-// 			document.getElementById("healthBar").background = rgb(0, 128, 0);
-// 		}
-// 		else
-// 			document.querySelector('welcomeScreen').textContent = "You win!";
-// 	}
-// 	else {
-// 		document.getElementById("healthBar").height = "${50+height}";
-// 	}
-// 	// if height = 250 1. if background-color = rgb(225, 0, 0), change to green and update height to 50; 2. if color is green, change the title to "you win"
-// 	// else, get the previous height and increment it by 50
-// 	//    document.querySelector(‘healthBar’).style.background = ‘#ccc’;
-// });
-
-
 var health = 250;
 var hungry = false;
 var thirsty = false;
 var ill = false;
 
+// checks if the alien is alive
 function isAlive() {
 	return (health > 0);
 }
 
+// updates the game screen with health and needs
 function update() {
 	var healthBar = document.getElementById("health");
 
@@ -35,10 +16,6 @@ function update() {
 	var ct = 0;
 
 	var countdown = setInterval(function () {
-		//console.log(health);
-
-		//decreaseHealth();
-
 		if (!hungry && !thirsty && !ill) {
 			document.getElementById("inflic").innerHTML = "I am healthy!";
 		} else {
@@ -93,10 +70,12 @@ function update() {
 	}, 1000);
 }
 
+// decreases the alien's health
 function decreaseHealth() {
 	health -= 5;
 }
 
+// increases the alien's health, or sets the health to max if over 250
 function increaseHealth() {
 	if (health < 250) {
 		health += 25;
@@ -105,21 +84,25 @@ function increaseHealth() {
 	}
 }
 
+// sets hungry to false and increases health
 function feed() {
 	hungry = false;
 	increaseHealth();
 }
 
+// sets thirsty to false and increases health
 function drink() {
 	thirsty = false;
 	increaseHealth();
 }
 
+// sets ill to false and increases health
 function medicate() {
 	ill = false;
 	increaseHealth();
 }
 
+// start the game
 function play() {
 	if (!isAlive())
 		return;
@@ -127,7 +110,7 @@ function play() {
 	update();
 }
 
+// game over
 function gameOver() {
-	//console.log('Game over!');
 	window.location.href = "end_screen.html"
 }
