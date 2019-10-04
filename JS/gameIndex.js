@@ -99,7 +99,7 @@ function decreaseHealth() {
 
 function increaseHealth() {
 	if (health < 250) {
-		health += 10;
+		health += 25;
 	} else {
 		health = 250;
 	}
