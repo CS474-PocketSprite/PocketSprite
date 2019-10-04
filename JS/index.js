@@ -8,9 +8,4 @@ function inputName(){
     
 }
 
-function nameFunc() {
-    var name = prompt("Please input a name!", "J'onn J'onzz");
-    document.getElementById("playerInfo").innerHTML = name + " the Pocket Alien";
-}
-
 
