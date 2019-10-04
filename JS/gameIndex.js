@@ -20,6 +20,9 @@
 
 
 var health = 250;
+var hungry = false;
+var thirsty = false;
+var ill = false;
 
 function isAlive() {
 	return (health > 0);
@@ -28,10 +31,56 @@ function isAlive() {
 function update() {
 	var healthBar = document.getElementById("health");
 
+	var t1, t2, t3;
+	var ct = 0;
+
 	var countdown = setInterval(function() {
 		//console.log(health);
 		
-		decreaseHealth();
+		//decreaseHealth();
+
+		if (!hungry && !thirsty && !ill) {
+			document.getElementById("inflic").innerHTML = "HEALTHY";
+		} else {
+			if (hungry) {
+				t1 = "hungry";
+			} else {
+				t1 = " ";
+			}
+
+			if (thirsty) {
+				t2 = "thirsty";
+			} else {
+				t2 = " ";
+			}
+
+			if (ill) {
+				t3 = "ill";
+			} else {
+				t3 = " ";
+			}
+
+			document.getElementById("inflic").innerHTML = "I am " + t1 + t2 + t3;
+		}
+
+		var infliction = Math.floor(Math.random() * 4);
+
+		if (infliction == 0) {
+			hungry = true;
+		} else if (infliction == 1) {
+			thirsty = true;
+		} else if (infliction == 2) {
+			ill = true;
+		}
+
+		if (hungry)
+			decreaseHealth();
+		
+		if (thirsty)
+			decreaseHealth();
+
+		if (ill)
+			decreaseHealth();
 
 		if (health <= 0) {
 			gameOver();
@@ -54,6 +103,21 @@ function increaseHealth() {
 	} else {
 		health = 250;
 	}
+}
+
+function feed() {
+	hungry = false;
+	increaseHealth();
+}
+
+function drink() {
+	thirsty = false;
+	increaseHealth();
+}
+
+function medicate() {
+	ill = false;
+	increaseHealth();
 }
 
 function play() {
