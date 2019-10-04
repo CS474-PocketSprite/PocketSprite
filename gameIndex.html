@@ -11,9 +11,7 @@
 
 <body>
     <div id="welcomeScreen">
-        <h1>
-            Pocket Alien
-        </h1>
+        <h1 id="playerInfo">Text Here</h1>
     </div>
 
     <div class="row">
@@ -57,5 +55,12 @@
     </div>
 
 </body>
-
+<script type="text/javascript">
+function func()
+{
+	var name = prompt("Please input a name!", "J'onn J'onzz");
+	document.getElementById("playerInfo").innerHTML = name + " the Pocket Alien";
+}
+func();
+</script>
 </html>
