@@ -34,9 +34,9 @@ function update() {
 	var t1, t2, t3;
 	var ct = 0;
 
-	var countdown = setInterval(function() {
+	var countdown = setInterval(function () {
 		//console.log(health);
-		
+
 		//decreaseHealth();
 
 		if (!hungry && !thirsty && !ill) {
@@ -75,7 +75,7 @@ function update() {
 
 		if (hungry)
 			decreaseHealth();
-		
+
 		if (thirsty)
 			decreaseHealth();
 
@@ -86,7 +86,7 @@ function update() {
 			gameOver();
 			clearInterval(countdown);
 		} else {
-			setInterval(function() {
+			setInterval(function () {
 				healthBar.value = health;
 			}, 1000);
 		}
