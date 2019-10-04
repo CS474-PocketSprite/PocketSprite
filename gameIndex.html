@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,18 +10,18 @@
 
 <body>
     <div id="welcomeScreen">
+        <!-- <h1>
+            Pocket Alien
+        </h1> -->
         <h1 id="playerInfo">Text Here</h1>
     </div>
-    <div>
+    <div id="welcomeScreen">
         <h2 id="inflic"></h2>
     </div>
     <div class="row">
         <div class="column left">
             <div class="container">
                 <div class="vertical-center">
-                    <!-- <div id="healthBar">
-                        <h2></h2>
-                    </div> -->
                     <progress id="health" value="250" max="250"></progress>
                 </div>
             </div>
@@ -36,7 +35,7 @@
                 <div class="bottom-container">
                     <div id="startButton">
                         <form method="POST" action="gameIndex.html" id="play">
-                            <button type="button" onclick="play()">Play</button>
+                            <button id="actionButton2" type="button" onclick="play()">Play</button>
                         </form>
                     </div>
                 </div>
@@ -47,9 +46,15 @@
             <div class="container">
                 <div class="vertical-center">
                     <div class="button-group">
-                        <button id="actionButton2" type="button" onclick="feed()">Give food</button>
-                        <button id="actionButton2" type="button" onclick="drink()">Give water</button>
-                        <button id="actionButton2" type="button" onclick="medicate()"> Give medicine</button>
+                        <form method="POST" action="gameIndex.html" id="play">
+                            <button id="actionButton2" type="button" onclick="feed()">Give Food</button>
+                        </form>
+                        <form method="POST" action="gameIndex.html" id="play">
+                            <button id="actionButton2" type="button" onclick="drink()">Give Water</button>
+                        </form>
+                        <form method="POST" action="gameIndex.html" id="play">
+                            <button id="actionButton2" type="button" onclick="medicate()">Give Medicine</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -57,12 +62,5 @@
     </div>
 
 </body>
-<script type="text/javascript">
-function func()
-{
-	var name = prompt("Please input a name!", "J'onn J'onzz");
-	document.getElementById("playerInfo").innerHTML = name + " the Pocket Alien";
-}
-func();
-</script>
+  
 </html>
