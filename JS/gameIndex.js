@@ -1,3 +1,4 @@
+
 const btn = document.querySelector('actionButton2');
 btn.addEventListener('click', (e)=> {
         e.preventDefault();
@@ -18,101 +19,103 @@ btn.addEventListener('click', (e)=> {
 	//    document.querySelector(‘healthBar’).style.background = ‘#ccc’;
 });
 
-var Sprite = {
 
-	initialize: function (name) {
-	  this.name = name;
-	  this.isSleeping = false;
-	  this.foodLevel = 50;
-	  this.thirstLevel = 50;
-	  this.medLevel = 50;
-	},
-  
-	calcHealthLevel: function () {
-	  var tempHealthLevel = (this.foodLevel + this.thirstLevel + this.restedLevel) / 3;
-	  if ((this.healthLevel >= 15) && (tempHealthLevel >= 15)) {
-		return 15;
-	  } else {
-		return ((tempHealthLevel + this.healthLevel)/2);
-	  };
-	},
-  
-  // Action functions - need buttons
-  
-	feed: function () {
-	  if (this.foodLevel < 15) {
-		this.foodLevel++;
-	  };
-	},
-  
-	play: function () {
-	  if (this.thirstLevel < 15) {
-		this.thirstLevel++;
-	  };
-	},
-  
-	medicine: function () {
-	  if (this.healthLevel < 15) {
-		this.healthLevel++;
-	  };
-	},
-  
-  // State variable readers
-  
-	isAlive: function () {
-	  if ((this.healthLevel < 2) || (this.foodLevel === 0)) {
-		return false;
-	  } else {
-		return true;
-	  };
-	},
-  
-  // Warning functions
-	foodWarning: function () {
-	  var foodWarning = false;
-		if (this.foodLevel < 15) {
-		  foodWarning = true;
-		};
-	  return foodWarning;
-	},
-  
-	thirstWarning: function () {
-	  var happinessWarning = false;
-		if (this.thirstLevel < 15) {
-		  happinessWarning = true;
-		};
-	  return happinessWarning;
-	},
-  
-	medWarning: function () {
-	  var healthWarning = false;
-		if (this.healthLevel < 15) {
-		  healthWarning = true;
-		};
-	  return healthWarning;
-	},
-  
-  // Time passes
-  
-	timePasses: function (intervalID) {
-	  if (this.isSleeping) {
-		if (this.restedLevel < 15) {
-		  this.restedLevel++;
-		};
-		if (this.thirstLevel > 0) {
-		  this.thirstLevel--;
-		};
-	  } else { // is awake
-		if (this.foodLevel > 0) {
-		  this.foodLevel--;
-		};
-		if (this.restedLevel > 0) {
-		  this.restedLevel--;
-		};
-		if (this.thirstLevel > 0) {
-		  this.thirstLevel--;
-		};
-	  };
-	  this.healthLevel = this.calcHealthLevel();
-	}
+var health = 250;
+var Sprite = {
+    initialize: function (name) {
+      this.name = name;
+      this.foodLevel = 50;
+      this.thirstLevel = 50;
+      this.medLevel = 50;
+    },
+    timePasses: function () {
+      this.foodLevel = this.foodLevel - 2;
+      this.thirstLevel = this.thirstLevel - 2;
+      this.medLevel = this.medLevel - 2;
+    },
+    isAlive: function () {
+      if (this.foodLevel <= 0 || this.thirstLevel <= 0 || this.medLevel <= 0) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    foodUp: function() {
+	  this.foodLevel = this.foodLevel + 5;
+	
+    },
+    thirstUp: function() {
+	  this.thirstLevel = this.thirstLevel + 5;
+	  
+    },
+    medUp: function() {
+	  this.medLevel = this.medLevel + 5;
+	 
+    }
+  }
+function isAlive() {
+	return (health > 0);
 }
+// Interval
+
+var inputName = document.querySelector(".spriteName");
+
+function update() {
+	var healthBar = document.getElementById("health");
+	var countdown = setInterval(function() {
+		Sprite.timePasses();
+		console.log(health);
+		decreaseHealth();
+		if (health <= 0) {
+			gameOver();
+			clearInterval(countdown);
+		} else {
+			setInterval(function() {
+				healthBar.value = health;
+			}, 1000);
+		}
+	}, 1000);
+}
+
+function decreaseHealth() {
+	health -= 5;
+}
+function play() {
+	if (!isAlive())
+		return;
+	update();
+}
+
+function gameOver() {
+	window.location.href = "end_screen.html"
+}
+
+
+$(document).ready(function() {
+  $("#play").click(function() {
+    $("#play").hide();
+    Sprite = Object.create(Sprite);
+    var countdown = setInterval(function() {
+
+        Sprite.timePasses();
+        $("span#foodLevel").text(Sprite.foodLevel);
+        $("span#thirstLevel").text(Sprite.thirstLevel);
+        $("span#medLevel").text(Sprite.medLevel);
+        if (!Sprite.isAlive()) {
+          clearInterval(countdown);
+          $("#play").show();}
+      }, 1000)
+    })
+  $("#foodButton").click(function() {
+    Sprite.foodUp();
+    $("span#foodLevel").text(Sprite.foodLevel);
+  })
+  $("#thirstButton").click(function() {
+    Sprite.thirstUp();
+    $("span#thirstLevel").text(Sprite.thirstLevel);
+  })
+  $("#medButton").click(function() {
+    Sprite.medicineUp();
+    $("span#medlevel").text(Sprite.medLevel);
+  })
+  })

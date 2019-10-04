@@ -5,6 +5,7 @@
     <link rel='stylesheet' type="text/css" href="Styles/gameIndex.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src ="JS/jquery-1.11.1.js"></script>
     <script src="JS/gameIndex.js"></script>
     <title> Pocket Alien </title>
 </head>
@@ -38,15 +39,19 @@
             <div class="container">
                 <div class="vertical-center">
                     <div class="button-group">
-                        <button id="actionButton2">Give food</button>
-                        <button id="actionButton2">Give water</button>
-                        <button id="actionButton2">Give medicine</button>
+                        <button id="foodButton" class="foodButton" >Give food</button>
+                        <button id="thirstButton"class="thirstButton" >Give water </button>
+                        <button id="medButton" class="medButton">Give medicine</button>
                     </div>
+                        <span id="foodLevel"></span>
+                      </div>
+                        <span id="thirstLevel"></span>
+                      </div>
+                        <span id="medLevel"></span>
+                      </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
-
 </html>
